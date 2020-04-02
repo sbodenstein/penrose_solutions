@@ -1,0 +1,27 @@
+% --------------------------------------
+% Chapter 5 Solutions
+% --------------------------------------
+
+\subsection{5.5 $\bigstar \bigstar \bigstar$}
+Let us first look at $e^a e^b$.
+\begin{align*}
+e^a e^b&=e^a(1+b+\frac{b^2}{2!}+\ldots)=e^a+e^a b+\frac{e^a b^2}{2!}+\ldots+\frac{e^a b^k}{k!}+\ldots\\
+&=\sum^{\infty}_{n=0}\frac{a^n}{n!}+\sum^{\infty}_{n=0}\frac{a^nb}{n!} +\ldots+\sum^{\infty}_{n=0}\frac{a^n b^k}{n! k!}+\ldots\\
+&=\sum_{k=0}^{\infty}\left(\sum^{\infty}_{n=0}\frac{a^n b^k}{n! k!}\right)
+\end{align*}
+Now consider $e^{a+b}$.We are given that the coefficient of $a^p b^q$ in $(a+b)^n$ is $\frac{n!}{p!q!}$. But we know that $p+q=n$. So let $p=n-q$, then  
+\begin{equation}
+(a+b)^n=\sum^{n}_{k=0}\frac{n!}{k!(n-k)!}a^{n-k}b^k
+\end{equation}
+Then we have that
+\begin{align*}
+e^{a+b}=\sum^{\infty}_{n=0}\frac{(a+b)^n}{n!}&=\sum^{\infty}_{n=0}\left(\sum^{n}_{k=0}\frac{1}{k!(n-k)!}a^{n-k}b^k\right)
+\end{align*}
+To see that this is the same as for $e^ae^b$, let us consider what the above sum means. Suppose we fix $k=i$. This will only exist when $i\leq n$. Then the sum becomes 
+$$\sum^{\infty}_{n=i}\frac{1}{i!(n-i)!}a^{n-i}b^i=\sum^{\infty}_{q=0}\frac{1}{i!q!}a^q b^i$$
+using $q\equiv n-i$. But the above must be summed over all $k$, not just for $k=i$. And as $n$ has range to $\infty$, so must $k$. So 
+\begin{align*}
+e^{a+b}=\sum^{\infty}_{n=0}\left(\sum^{n}_{k=0}\frac{1}{k!(n-k)!}a^{n-k}b^k\right)=\sum^{\infty}_{k=0}\sum_{q=0}^{\infty} \frac{1}{k!q!}a^q b^k=e^ae^b
+\end{align*}
+
+

@@ -1,0 +1,87 @@
+% --------------------------------------
+% Chapter 10 Solutions
+% --------------------------------------
+
+\subsection{10.1 $\bigstar\bigstar$}
+Suppose $w,z$ are complex numbers. We can construct subtraction as
+\begin{align*}
+w-z&=w+(-z)=w+(-1\cdot z)
+\end{align*}
+using only addition and multiplication. Division is slightly more tricky. Let us divide an arbitrary complex number $z$ by $w$,
+\begin{align*}
+\frac{z}{w}&=\frac{z}{1-(1-w)}\\
+&=\sum^{\infty}_{n=0}z\cdot(1-w)^n =\lim_{i\to \infty}\sum^{i}_{n=0}z\cdot(1-w)^n
+\end{align*}
+where we made use of the geometric summation 
+$$\frac{1}{1-b}=\sum^{\infty}_{n=0} b^n$$ 
+
+
+\subsection{10.2 $\bigstar$}
+We have that $z=x+iy$. For the first function,
+\begin{align*}
+F(z,\overline{z})&=z^2+\overline{z}^2\\
+&=(x+iy)^2+(x-iy)^2\\
+&=2x^2-2y^2\\
+&=f(x,y)
+\end{align*}
+For the second function,
+\begin{align*}
+F(z,\overline{z})&=z\overline{z}\\
+&=(x+iy)(x-iy)\\
+&=x^2+y^2\\
+&=f(x,y)
+\end{align*}
+
+
+\subsection{10.3 $\bigstar\bigstar\bigstar$}
+Suppose $y=a$, where $a$ some constant. Then
+$$f(x)=\frac{ax}{(x^2+a^2)^N}$$
+Now to show that $f(x)$ is $C^\omega$-smooth, we need to show that we can represent it as a power-series. There are a variety of ways of doing this. One elegant method goes as follows: We consider the above function to be a complex-valued function of the complex variable $x$. Then we show it to be complex-smooth, which Penrose showed in Section 7.3 to imply complex-analyticity. If we know a function to be complex analytic, we know it can be represented by a complex power series. But this series must also hold on the real-line. And so the function is also real-analytic. \\ \\ The key to showing complex-smoothness lies in the fact that the composition of complex smooth functions is also complex smooth. This fact is obvious from the discussion Section 8.2, showing that complex smoothness is equivalent to conformality (and non-reflectingess). If two functions preserve infinitesimal angles, then their composition must obviously also do so, and so the composition is conformal and hence complex smooth. Now we need the simple fact that $f(z)=z^n$ for any $n\in \mathbb{R}$ is complex smooth,\footnote{except at $z=0$ for $n<0$ ofcourse.} and so are transformations of the type $f(z)=az+b$ are also smooth. We can see that we can compose our function  of these (for any value of $N$, not just for $N=2,1,1/2$), and so we conclude that $f(x)=ax(x^2+a^2)^{-N}$ is a real $C^\omega$-smooth function, as we needed to show.  \\ \\
+Having showed the function in a single variable to be pretty smooth, we now need to show that this is no longer the case when we consider the function as a function of the pair $(x,y)$. We consider each of the three cases seperately. Any line through the origin can be expressed $y=mx$. Then for the case $N=2$, considering the function on lines through the origin 
+\begin{align*}
+f(x)&=\frac{mx^2}{x^4(m^2+1)^2}=\frac{m}{(m^2+1)^2}\frac{1}{x^2}
+\end{align*}
+which diverges when $x\to 0$ and $m\neq 0$.\\ \\ For $N=1$,
+\begin{align*}
+f(x)&=\frac{mx^2}{x^2(m^2+1)}=\frac{m}{m^2+1}
+\end{align*}
+which is clearly discontinuous at $x=0$, as $f(0,0)$ is dependant on the slope of the line, and so different depending on the direction taken to get to $(0,0)$. It is also clearly bounded at $(0,0)$. \\ \\ For $N=1/2$, let us consider the line $y=x$. Then
+\begin{align*}
+f(x)&=\frac{x^2}{\sqrt{2x^2}}=\frac{x^2}{\sqrt{2}\, |x|}=\frac{|x|}{\sqrt{2}}
+\end{align*}
+where we made use of $\sqrt{x^2}=|x|$. We already know that $|x|$ is not smooth at the origin, although it certainly is continuous.
+
+
+\subsection{10.4 $\bigstar\bigstar$}
+Polynomials are composed of sums of terms of the form $x^n y^m$ where $n,m\in \mathbb{N}$. It suffices to show that the order differentiation on one of these terms does not matter, in order to show that it also doesn't matter for a general polynomial\footnote{This should be obvious, as one of the properties of derivatives is that $\frac{d}{dx}(f(x)+g(x))=\frac{d f(x)}{dx}+\frac{d g(x)}{dx}$.}
+$$\frac{\partial^2}{\partial x \partial y} x^n y^m =\frac{\partial}{\partial x }mx^ny^{m-1}=nm x^{n-1}y^{m-1}=\frac{\partial}{\partial x }mx^ny^{m-1}=\frac{\partial^2}{\partial y \partial x} x^n y^m$$
+
+
+\subsection{10.6 $\bigstar$}
+Following Penrose's hint, we see that $x^2+xy+y^2=(x-y)^2+3xy=X^2+3Y$. We then have $$f(x,y)=x^3-y^3=(x^2+xy+y^2)(x-y)=(X^2+3Y)X=F(X,Y)$$
+
+
+\subsection{10.12 $\bigstar\bigstar\bigstar$}
+Suppose $z=x+iy$ and $f(z)=\alpha+i\beta$, where $\alpha,\beta$ real functions of $z$. Then using the same definition for the derivative as in the real case,\footnote{I am not sure whether Penrose actually defines this anywhere.} we have
+\begin{align*}
+\frac{d f}{ d z}=\lim_{\delta z\to 0}\frac{f(z+\delta z)-f(z)}{\delta z}&=\lim_{\delta z\to 0}\frac{\delta f(z)}{\delta z}=\lim_{\delta z\to 0}\frac{\delta \alpha+i\delta \beta}{\delta x+i\delta y}
+\end{align*}
+Now for the above limit to exist, it cannot depend on the direction taken to get to 0. Hence we should have that the limit should be the same whether we fix $\delta y=0$ and let $\delta x\to 0$, or whether we fix $\delta x=0$ and let $\delta y\to 0$. Hence
+\begin{align*}
+\lim_{\delta x \to 0}\frac{\delta \alpha+i\delta \beta}{\delta x}&=\lim_{\delta y \to 0}\frac{\delta \alpha+i\delta \beta}{i\delta y}\\
+\implies \frac{\partial \alpha }{\partial x}+i\frac{\partial\beta}{\partial y} &=\frac{\partial \alpha }{i\partial y}+i\frac{\partial\beta}{i \partial y} &
+\end{align*}
+Equating the real and imaginary parts of the above gives the two Cauchy-Riemann equations.
+
+
+
+
+
+
+
+
+
+
+
+
+

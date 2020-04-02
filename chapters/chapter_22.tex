@@ -1,0 +1,106 @@
+% --------------------------------------
+% Chapter 22 Solutions
+% --------------------------------------
+
+\subsection{22.2 $\bigstar \bigstar\bigstar $}
+What Penrose seems to want here is for one to prove the Cauchy-Schwarz inequality, as the desired result follows straight from that. Here is a proof I typed up for a quantum mechanics tutorial a long time ago!
+
+\newtheorem{T1}{Schwarz inequality}
+\begin{T1}
+Let $\phi$ and $\psi$ be vectors in an inner product space. Then 
+$$|\left<\phi|\psi\right >|^2\leq \left<\phi|\phi\right >\left<\psi|\psi\right >$$
+\end{T1}
+\begin{proof}
+
+
+We have that if either $\phi$ of $\psi$ is \textbf{0}, then the inequality is trivially satisfied. So suppose that both $\psi$ and $\phi$ are both non-zero. Letting $\lambda\in\mathbb{C}$, then
+\begin{align*}
+0&\leq\left<\phi-\lambda\psi|\phi-\lambda\psi\right>\\
+&=\left<\phi|\phi\right>-\overline{\lambda}\left<\phi|\psi\right>-\lambda\left<\psi|\phi\right>+|\lambda|^2\left<\psi|\psi\right>\\
+\end{align*}
+Now we can represent $\left<\phi|\psi\right>$ as $|\left<\phi|\psi\right>|\,e^{i\alpha}$,
+where $\alpha\in\mathbb{R}$. We then have that 
+$$\left<\psi|\phi\right>=\overline{\left<\phi|\psi\right>}=|\left<\phi|\psi\right>|\,e^{-i\alpha}$$
+Using this, we have that
+\begin{align*}
+0&\leq \left<\phi|\phi\right>+|\lambda|^2\left<\psi|\psi\right>-\overline{\lambda}|\left<\phi|\psi\right>|\,e^{i\alpha}-\lambda|\left<\phi|\psi\right>|\,e^{-i\alpha}
+\end{align*}
+Now let $\lambda=re^{i\alpha}$, where $r\in\mathbb{R}$. Then
+\begin{align*}
+0&\leq \left<\phi|\phi\right>+r^2\left<\psi|\psi\right>-2r|\left<\phi|\psi\right>|
+\end{align*}
+Letting $r=\frac{|\left<\phi|\psi\right>|}{\left<\psi|\psi\right>}$, (we can do this as $\phi\neq\mathbf{0})$  we have that
+\begin{align*}
+0&\leq \left<\phi|\phi\right>+\left(\frac{|\left<\phi|\psi\right>|}{\left<\psi|\psi\right>}\right)^2\left<\psi|\psi\right>-2\frac{|\left<\phi|\psi\right>|}{\left<\psi|\psi\right>}|\left<\phi|\psi\right>|\\
+&=\left<\phi|\phi\right>-\frac{|\left<\phi|\psi\right>|^2}{\left<\psi|\psi\right>}\\
+&=\frac{\left<\phi|\phi\right>\left<\psi|\psi\right>-|\left<\phi|\psi\right>|^2}{\left<\psi|\psi\right>}\\
+\implies \ \ \ \ \ 0&\leq \left<\phi|\phi\right>\left<\psi|\psi\right>-|\left<\phi|\psi\right>|^2\\
+\implies \ \ \ \ \ |\left<\phi|\psi\right>|^2&\leq \left<\phi|\phi\right>\left<\psi|\psi\right>
+\end{align*}
+
+\end{proof}
+\textbf{A quick comment:} Penrose wants us to consider integrals. But it is easy to show that the particular integral expression satisfies the axioms of a scalar product, and so we can apply our inequality.  If both $\|\psi\|$ and $\|\phi\|$ converge, then $\|\psi\|\cdot\|\phi\|=k$ where $k$ is some finite real number. Then we know that $|\left <\phi|\psi\right>|$ is certainly bounded and can't diverge. But what if $\left <\phi|\psi\right>$ oscillates? This inequality does not then help. Though I don't think Penrose wants us to consider this case...
+
+
+\subsection{22.9 $\bigstar \bigstar$}
+We know that the unitary operators evolve as $i\hbar\frac{d}{dt}U(t)=\mathcal{H} U(t)$. As $\mathbf{U}^{-1}=\mathbf{U}^*$, then $[i\hbar\frac{d}{dt}U(t)]^*=\mathcal{H}^* U^*(t)\implies -i\hbar\frac{d}{dt}U^{-1}(t)=\mathcal{H} U^{-1}(t) $ as the Hamiltonian $\mathcal{H}$ is Hermitean. Also, $\mathbf{Q}_H(t)=U^{-1}(t)\mathbf{Q}(0)U(t)$. Then
+\begin{align*}
+i\hbar\frac{d}{dt}\mathbf{Q}_H(t)&=i\hbar\frac{d U^{-1}}{dt}\mathbf{Q}(0)U(t)+i\hbar U^{-1}\mathbf{Q}(0)\frac{d U(t)}{dt}\\
+&=-\mathcal{H}\underbrace{U^{-1}\mathbf{Q}(0)U(t)}_{\mathbf{Q}_H(t)}+\underbrace{U^{-1}\mathbf{Q}(0)U(t)}_{\mathbf{Q}_H(t)}\mathcal{H} \\
+&=\mathbf{Q}_H(t)\mathcal{H}-\mathcal{H}\mathbf{Q}_H(t)\\
+&=[\mathbf{Q}_H(t),\mathcal{H}] 
+\end{align*}
+Obviously Penrose made a small mistake writing $[\mathcal{H},\mathbf{Q}_H(t)]$ instead of $[\mathbf{Q}_H(t),\mathcal{H}]$. 
+
+
+
+\subsection{22.11 $\bigstar \bigstar\bigstar$}
+If $\mathbf{Q}^*$ commutes with $\mathbf{Q}$, then $(\mathbf{Q}^*-\overline{\lambda}\mathbf{I})$ commutes with $(\mathbf{Q}-\lambda \mathbf{I})$. Now suppose $\mathbf{Q}\left|\psi\right>=\lambda\left|\psi\right>$. Then 
+\begin{align*}
+0&=\left< \psi\right|(\mathbf{Q}^*-\overline{\lambda}\mathbf{I})(\mathbf{Q}-\lambda \mathbf{I})\left.\psi\right >\\
+&=\left< \psi\right|(\mathbf{Q}-\lambda \mathbf{I})(\mathbf{Q}^*-\overline{\lambda}\mathbf{I})\left.\psi\right >\\
+&=\left<(\mathbf{Q}^*-\overline{\lambda}\mathbf{I}) \psi\right|(\mathbf{Q}^*-\overline{\lambda}\mathbf{I})\left.\psi\right >
+\end{align*}
+But this implies that $(\mathbf{Q}^*-\overline{\lambda}\mathbf{I})\left|\psi\right >=0$ and hence $\mathbf{Q}^*\left|\psi\right >=\overline{\lambda}\left|\psi\right >$. \\ \\ Now suppose we have $\mathbf{Q}\left|\phi\right >=\eta\left|\phi\right >$ where $\eta\neq\lambda$. Now
+\begin{align*}
+\left<\mathbf{Q}\, \phi\right|\mathbf{Q} \left.\psi\right >=&\left<\eta\phi\right|\lambda\left.\psi\right >\\
+&=\overline{\eta}\,\lambda\left<\phi\right|\left.\psi\right >\\
+=&\left< \phi\right|\mathbf{Q}^*\mathbf{Q} \left.\psi\right >\\
+=&|\lambda|^2\left< \phi\right|\left.\psi\right >
+\end{align*}
+Hence $(\overline{\eta}\,\lambda-|\lambda|^2)\left<\phi\right|\left.\psi\right >=0$. But $\lambda\neq\eta\implies |\lambda|^2\neq \overline{\eta}\,\lambda$, and hence  $\left<\phi\right|\left.\psi\right >=0$. Thus the eigenvectors of distinct eigenvalues are indeed orthogonal for normal operators, as we wanted to show.
+
+
+\subsection{22.12 $\bigstar \bigstar\bigstar$}
+In question 22.2 we proved the Cauchy-Schwarz inequality
+$$|\left<\phi|\psi\right >|^2\leq \left<\phi|\phi\right >\left<\psi|\psi\right >$$
+With this result, this question is trivial. As $\left<\phi|\psi\right >=\overline{\left<\psi|\phi\right >}$, we have   
+\begin{align*}
+\frac{\left<\phi|\psi\right >\left<\psi|\phi\right >}{\left<\phi|\phi\right >\left<\psi|\psi\right >}&=\frac{|\left<\phi|\psi\right >|^2}{\left<\phi|\phi\right >\left<\psi|\psi\right >}\leq \frac{\left<\phi|\phi\right >\left<\psi|\psi\right> }{\left<\phi|\phi\right >\left<\psi|\psi\right >}=1
+\end{align*}
+It is also obvious that our expression is real and that
+$$\frac{|\left<\phi|\psi\right >|^2}{\left<\phi|\phi\right >\left<\psi|\psi\right >}\geq 0$$
+It is obvious that if $\left|\psi\right>=\lambda \left|\phi\right>$, then 
+$\frac{|\left<\phi|\psi\right >|^2}{\left<\phi|\phi\right >\left<\psi|\psi\right >}=1$. But we need to show the converse, that if $\frac{|\left<\phi|\psi\right >|^2}{\left<\phi|\phi\right >\left<\psi|\psi\right >}=1$, then $\left|\psi\right>=\lambda \left|\phi\right>$. One way is as follows. Suppose $\left|\psi\right >$ is an element of an $n$-dimensional vector space $\mathbb{V}$, where $n$ could be infinte. We can always find an orthogonal set of $n$ basis vectors including $\left|\psi\right >$.\footnote{We can always use the Gram-Schmidt procedure to explicitly construct this set of basis vectors.} Hence we can find a $\left|\zeta\right >\in\mathbb{V}$ such that $\left|\phi\right >=\lambda\left|\psi\right >+\left|\zeta\right >$ and that $\left|\zeta\right >$ is orthogonal to $\lambda\left|\psi\right >$.  $\left|\zeta\right >$ is obviously some linear combination of the other $n-1$ basis vectors. Then
+\begin{align*}
+&\frac{|\left<\phi|\psi\right >|^2}{\left<\phi|\phi\right >\left<\psi|\psi\right >}=1\\
+\implies \ \ &\frac{|\left<\phi|\psi\right >|^2}{\left<\psi|\psi\right >}=\left<\phi|\phi\right >\\ 
+\implies \ \ &\frac{|\left<\right.(\lambda\psi+\zeta)\left|\psi\right >|^2}{\left<\psi|\psi\right >}=\left<(\lambda\psi+\zeta)|(\lambda\psi+\zeta)\right >\\ 
+\implies \ \ &\frac{|\lambda|^2\left<\psi |\psi\right >^2}{\left<\psi|\psi\right >}=|\lambda|^2\left<\psi |\psi\right >+0+0+\left<\zeta |\zeta\right >\\
+\implies \ \ &\left<\zeta |\zeta\right >=0\\
+\end{align*}
+and so $\left|\zeta\right >=0$, and $\left|\phi\right >=\lambda\left|\psi\right >$, as we wanted.
+
+
+\subsection*{22.13 $\bigstar \bigstar$}
+Suppose $\mathbf{Q}$ satisfies the arbitrary polynomial equation
+$$\mathbf{Q}^n+a_{n-1}\mathbf{Q}^{n-1}+\ldots a_1\mathbf{Q}+a_0\mathbf{I}=0$$
+Now suppose $\mathbf{v}$ is some eigenvector of $\mathbf{Q}$, with eigenvalue $\lambda$. Then
+\begin{align*}
+&\mathbf{Q}^n\cdot\mathbf{v}+a_{n-1}\mathbf{Q}^{n-1}\cdot\mathbf{v}+\ldots a_1\mathbf{Q}\cdot\mathbf{v}+a_0\mathbf{I}\cdot\mathbf{v}=0\cdot \mathbf{v} \\
+\implies   \ \ \ \ &\lambda^n\cdot\mathbf{v}+a_{n-1}\lambda^{n-1}\cdot\mathbf{v}+\ldots a_1\lambda\cdot\mathbf{v}+a_0\mathbf{v}=0\\
+\implies   \ \ \ \ &(\lambda^n+a_{n-1}\lambda^{n-1}+\ldots a_1\lambda+a_0)\cdot\mathbf{v}=0
+\end{align*}
+As eigenvectors are by definition non-zero, we must have that 
+$$\lambda^n+a_{n-1}\lambda^{n-1}+\ldots a_1\lambda+a_0=0$$
+As this eigenvector-eigenvalue pair was arbitrary, we conclude that each of the eigenvalues of $\mathbf{Q}$ also satisfies any polynomial equation of $\mathbf{Q}$. \\ \\ The converse is also true, that if the eigenvalues of $\mathbf{Q}$ satisfy a polynomial equation, then $\mathbf{Q}$ also satisfies this equation. This is known as the \emph{Cayley-Hamilton} theorem.

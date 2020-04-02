@@ -1,0 +1,23 @@
+% --------------------------------------
+% Chapter 9 Solutions
+% --------------------------------------
+
+\subsection{9.1 $\bigstar$}
+For a given frequency $n\omega$, we have two contributing exponentials 
+\begin{align*}
+\alpha_{-n} e^{-in \omega}+\alpha_n e^{in \omega}&=\alpha_{-n}[\cos (-n\omega)+i\sin (-n\omega)]+\alpha_n[\cos (n\omega)+i\sin (n\omega)]\\
+&=(\alpha_{-n}+\alpha_n)\cos (n\omega)+i(\alpha_{-n}-\alpha_n)\sin (n\omega)\\
+&=a_n\cos (n\omega)+b_n\sin (n\omega)
+\end{align*} 
+where we made use of $\cos(-x)=\cos x$ and $\sin (-x)=-\sin x$.
+
+
+\subsection{9.2 $\bigstar \bigstar$}
+We learnt on pg.126 that only the $z^{-1}$ term contributes to the integral \footnote{ie. $\oint z^{-1}\,\rm{d}z=2\pi i$ and that $\oint z^{n}\,\rm{d}z=0$ for all $n\neq -1$.} and hence, taking a contour\footnote{obviously the contour will be contained within the unit circle, as this is the region of analyticity of $F(z)$.} about $z=0$, we get
+\begin{align*}
+\oint z^{-n-1} F(z)\, \text{d}z&=\oint \frac{1}{z^{n+1}} \left (\ldots +\alpha_{n-1}z^{n-1}+\alpha_{n}z^{n}+\alpha_{n+1}z^{n+1}+\ldots \right )\, \text{d}z\\
+&= \ldots +\alpha_{n-1}\oint z^{-2} \, \text{d}z+\alpha_{n} \oint z^{-1}\, \text{d}z+\alpha_{n+1}\oint \, \text{d}z+\ldots \\
+&=\ldots 0+2\pi i\cdot \alpha_n +0+\ldots\\
+&=2\pi i \alpha_n
+\end{align*}
+The result follows from this.

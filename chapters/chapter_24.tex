@@ -1,0 +1,58 @@
+
+\subsection{24.9 $\bigstar \bigstar\bigstar$}
+\subsubsection*{Part 1}
+We need to show that we cannot use $2\times 2$ matrices to represent our Dirac-Clifford algebra. The key fact is that 
+\begin{itemize}
+\item The set $\{\mathbf{1},\gamma_0,\gamma_1,\gamma_2,\gamma_3\}$ is linearly independant.\footnote{Penrose assumes this implicitly when doing his counting in section 11.5.} This is easy to show.
+\end{itemize}
+So to represent our algebra, we obviously need 5 linearly independent matrices. But $2\times 2$ matrices have \emph{at most} 4 linearly independent matrices. This is because the set
+$$\left\{
+\begin{pmatrix} 
+1&0 \\
+0&0
+\end{pmatrix},\begin{pmatrix} 
+0&1 \\
+0&0
+\end{pmatrix},\begin{pmatrix} 
+0&0 \\
+1&0
+\end{pmatrix},\begin{pmatrix} 
+0&0 \\
+0&1
+\end{pmatrix}\right\}$$
+is linearly independent, and spans\footnote{Meaning any $2\times 2$ matrix can be written as a linear combination of these matrices. } the space of $2\times 2$ matrices. Hence $2\times 2$ matrices are unsuitable for using as a representation for our algebra.
+
+\subsubsection*{Part 2}
+The identity $\mathbf{1}$ obviously gets sent to the identity matrix. \\ \\ First note that we have already found a representation for the quaternions, the Pauli matrices. These are\footnote{See Section 22.8} 
+$$\sigma_0=
+\begin{pmatrix} 
+1&0 \\
+0&1
+\end{pmatrix}=\mathbf{I}_2,\quad \sigma_1=\begin{pmatrix} 
+0&1 \\
+1&0
+\end{pmatrix},\quad \sigma_2=\begin{pmatrix} 
+0&-i \\
+i&0
+\end{pmatrix},\quad \sigma_3=\begin{pmatrix} 
+1&0 \\
+0&-1
+\end{pmatrix}$$
+A key property of the Pauli matrices are that
+\begin{itemize}
+\item $(\sigma_i)^2=\mathbf{I}_2$ for $i=0,1,2,3$.
+\end{itemize}
+But $(\gamma_1,\gamma_2,\gamma_3)$ satisfy the same algebra as the quaternions, so they ought to somehow correspond to $(\sigma_1,\sigma_2,\sigma_3)$. One way of building larger matrices from smaller ones is to take the direct product, $\otimes$. This has the property that if $\mathbf{A},\mathbf{B},\mathbf{C},\mathbf{D}$ are $n\times n$ matrices, then $$(\mathbf{A}\otimes\mathbf{B})(\mathbf{C}\otimes\mathbf{D})=(\mathbf{A}\mathbf{C})\otimes(\mathbf{B}\mathbf{D})$$ and $\mathbf{A}\otimes\mathbf{B}$ is ofcourse an $n^2\times n^2$ matrix. But that is precisely what we want! We have $2\times 2$ matrices and want $4\times 4$ matrices.\\ \\ Now suppose $\mathbf{A}$ is some arbitrary $2\times 2$ matrix. Then suppose we try $\gamma_i=\sigma_i\otimes \mathbf{A}$. Then $$(\gamma_i)^2=(\sigma_i)^2\otimes \mathbf{A}^2=\mathbf{I}_2\otimes \mathbf{A}^2=-\mathbf{I}_4$$ iff $i=1,2,3$ and $(\gamma_0)^2=\mathbf{I}_4$ for $i=0$. Hence for $i=1,2,3$, $\mathbf{A}^2=-\mathbf{I}_2$. Thus we can use any of the Pauli matrices times $i$ to represent $\mathbf{A}$. Let us choose $\mathbf{A}=i\sigma_2$. But for $i=0$, we can't use $\mathbf{A}=i\sigma_2$, because of the $i$. But even if we used $\mathbf{A}=\sigma_2$, this would still not work, as then $\gamma_0=\mathbf{I}_2\otimes \sigma_2$ would commute with all the other $\gamma_i$'s. Thus we use some other Pauli matrix, such as $\sigma_3$, and get $\gamma_0=\mathbf{I}_2\otimes \sigma_3$. Finally we have then that 
+\begin{align*}
+\gamma_0=&\begin{pmatrix} 
+\mathbf{I}_2&0 \\
+0&-\mathbf{I}_2
+\end{pmatrix}=\mathbf{I}_2\otimes \sigma_3\\
+\gamma_i=&\begin{pmatrix} 
+0&\sigma_i \\
+-\sigma_i&0
+\end{pmatrix}=\sigma_i\otimes i\sigma_2
+\end{align*}
+It can then be mechanically verified that this satisfies the Clifford algebra.
+
+

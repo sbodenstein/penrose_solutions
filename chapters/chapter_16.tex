@@ -1,0 +1,16 @@
+% --------------------------------------
+% Chapter 16 Solutions
+% --------------------------------------
+
+
+\subsection{16.16 $\bigstar \bigstar\bigstar $}
+We need to prove both ways of the implication.
+\subsection*{1. Recursive $\implies$ recursively enumerable}
+We suppose that the set $S$ is recursive. Then there exists a Turing machine $\mathbf{T}_S(n)$ such that $\mathbf{T}_S(n)=1$ iff $n\in S$ and $\mathbf{T}_S(n)=0$ iff $n\notin S$. Now define another Turing machine $\mathbf{U}_S(n)$ with
+\begin{itemize}
+\item[] $\mathbf{U}_S(n)=n$ iff $\mathbf{T}_S(n)=1$ \\ $\mathbf{U}_S(n)$ does not halt when $\mathbf{T}_S(n)=0$
+\end{itemize} 
+Now it is evident that $\mathbf{U}_S(\mathbb{N})=S$, as for those $n$ for which $\mathbf{U}_S(n)$ doesn't halt, no output is produced by the machine, and so has no effect on the set of all outputs of $\mathbf{U}_S(n)$, in our case $S$. Hence our set $S$ is produced by the action of a Turing machine ($\mathbf{U}_S(n)$) and hence is recursively enumerable.\\ \\ It is now trivial to see that the set $\overline{S}=\mathbb{N}-S$ is also recursively enumerable, as we just modify $\mathbf{U}_S(n)$ so that $\mathbf{U}_S(n)=n$ iff $\mathbf{T}_S(n)=0$ and $\mathbf{U}_S(n)$ does not halt when $\mathbf{T}_S(n)=1$.
+
+\subsection*{2. recursively enumerable $\implies$ recursive  }
+We suppose that $S$ and $\overline{S}$ are recursively enumerable. Thus there exist Turing machines $\mathbf{T}_S$ and  $\overline{\mathbf{T}}_S$ such that $\mathbf{T}_S(\mathbb{N})=S$ and $\overline{\mathbf{T}}_S(\mathbb{N})=\overline{S}$. Now for $S$ to be recursive, we must be able to construct another Turing machine $\mathbf{V}_S(n)$ which can test tell whether or not $n\in S$. To do this, $\mathbf{V}_S(n)$ runs $\mathbf{T}_S(0)=a$ and  $\overline{\mathbf{T}}_S(0)=b$. If $a=n$, then $\mathbf{V}_S(n)=1$, and iff $b=n$, then $\mathbf{V}_S(n)=0$. If neither $a$ nor $b$ equal $n$, then it tries $\mathbf{T}_S(1)=a$ and  $\overline{\mathbf{T}}_S(1)=b$ and repeats the previous steps. If it still hasn't halted, it tries  $\mathbf{T}_S(2)$ and  $\overline{\mathbf{T}}_S(2)$, etc. Eventually it will halt, and spit out either 1 or 0. Hence $S$ is recursive. \\ \\ We can see why both $S$ and $\overline{S}$ must be recursively enumerable for $S$ to be recursive. If only $S$ were recursively enumerable, and not $\overline{S}$, then we could only check whether $n\in S$. If indeed $n\in S$, then our search will end. But if $n\notin S$, then we could never establish this, as our search would carry on forever.    

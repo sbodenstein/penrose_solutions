@@ -1,0 +1,29 @@
+
+\subsection{Jordan's Lemma}
+\newtheorem{T11}{Theorem}
+\begin{T11} Suppose $\gamma$ is a semicircular arc in the upper-half plane.\footnote{$\gamma=\{Re^{i\theta}:0<\theta<\pi\}$} Then for a function $f(z)$ of a complex variable $z$, if 
+\begin{itemize}
+\item $f(z)$ is analytic in the upper half-plane except for a finite number of poles in $\text{Im}\ z>0$,
+\item the maximum of $|f(z)|\to 0$ as $|z|\to \infty$ in the upper half-plane
+\item $m>0$
+\end{itemize}
+then 
+$$I_\gamma=\int_\gamma e^{imz}f(z)\ dz\to 0  \ \ \ \ as \ \ R\to \infty$$
+\end{T11}
+\begin{proof}
+The proof hinges on the identity\footnote{A quick way of proving this is as follows: It is geometrically obvious that $\sin\theta\leq \theta$. To show that $\frac{2\theta}{\pi}\leq\sin\theta$, we note that initially $\frac{d}{d \theta}\frac{2\theta}{\pi}=\frac{2}{\pi}\leq\frac{d}{d \theta}\sin\theta=\cos\theta=1$. So initially the inequality holds. Then we note that at $\theta=0$ and $\theta=\pi/2$, there is equality. But geometrically, there can only be a maximum of two intersection points between a straight line and the $\sin\theta$ curve in this range, and so the equality holds in the whole range $0\leq \theta \leq \pi/2$.}
+$$\frac{2\theta}{\pi}\leq \sin\theta \leq \theta$$
+where $0\leq \theta\leq \frac{\pi}{2}$. We also have, with $z=R e^{i\theta}$, that 
+\begin{align*}
+|e^{imz}|&=|e^{imR(\cos\theta +i\sin\theta)}|=|e^{-imR\sin\theta}|
+\end{align*}
+Then
+\begin{align*}
+I_\gamma \leq \int_\gamma |e^{imz}f(z)| |\text{d}z|&\leq \int_{0}^{\pi} |e^{-imR\sin\theta}|\cdot M\cdot |iR e^{i\theta}\text{d}\theta|\\
+&=2RM\int_{0}^{\frac{\pi}{2}} e^{-imR\sin\theta} \text{d}\theta\\
+&\leq 2RM\int_{0}^{\frac{\pi}{2}} e^{-imR(2\theta / \pi)} \text{d}\theta\\
+&=\frac{\pi M}{m}\left ( 1-e^{-mR}\right)\\
+&<\frac{\pi M}{m}
+\end{align*}
+But $M\to 0$ as $R\to \infty$, hence $I_\gamma\to 0$ as $R\to \infty$.
+\end{proof}

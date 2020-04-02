@@ -1,0 +1,35 @@
+% --------------------------------------
+% Chapter 20 Solutions
+% --------------------------------------
+
+
+\subsection{20.9 $\bigstar\bigstar\bigstar$}
+We need to show that iff the $n\times n$ matrices $\mathbf{P}$ and $\mathbf{Q}$ are positive-definite, then the product  $\mathbf{W}=\mathbf{P}\mathbf{Q}$ must have positive eigenvalues. So suppose the vector $\mathbf{v}$ is an eigenvector of $\mathbf{W}$ with eigenvalue $\lambda$. Then 
+\begin{align*}
+(\mathbf{P}\mathbf{Q})\mathbf{v}&=\lambda\mathbf{v}\\
+\implies \ \  \ \ \mathbf{Q}\mathbf{v}&=\lambda \mathbf{P}^{-1}\mathbf{v}\\
+\implies \mathbf{v}^T\mathbf{Q}\,\mathbf{v}&=\lambda \mathbf{v}^T\mathbf{P}^{-1}\mathbf{v}\\
+\implies \qquad  \lambda&= \frac{\mathbf{v}^T\mathbf{Q}\,\mathbf{v}}{\mathbf{v}^T\mathbf{P}^{-1}\mathbf{v}}>0
+\end{align*}
+As $\mathbf{Q}$ is positive-definite, we immediately have that $\mathbf{v}^T\mathbf{Q}\,\mathbf{v}>0$. Now there are two things we need to prove for us to be able to conclude in the above that $\lambda>0$:
+\begin{itemize}
+\item $\mathbf{v}^T\mathbf{P}^{-1}\,\mathbf{v}>0$, ie. that the inverse of a positive-definite matrix is also positive-definite. 
+\item Any positive-definite matrix actually has an inverse.
+\end{itemize}  
+The way to see the first part is by changing our basis, $\mathbf{v}= \mathbf{P}^{-1}\,\mathbf{x}$. We note that $\mathbf{P}$ is a symmetric matrix, which means that its inverse is also symmetric.\footnote{This is easy to see. $(\mathbf{P}\mathbf{P}^{-1})^T=(\mathbf{P}^{-1})^T\mathbf{P}^T=(\mathbf{P}^{-1})^T\mathbf{P}=\mathbf{I}$. As inverses are unique, $(\mathbf{P}^{-1})^T=\mathbf{P}^{-1}$ and hence $\mathbf{P}^{-1}$ is symmetric. } Hence 
+$$0<\mathbf{v}^T\mathbf{P}\,\mathbf{v}= \mathbf{x}^T(\mathbf{P}^{-1})^T\mathbf{P}\mathbf{P}^{-1}\,\mathbf{x}=\mathbf{x}^T(\mathbf{P}^{-1})^T\,\mathbf{x}=\mathbf{x}^T\mathbf{P}^{-1}\,\mathbf{x}$$ As $\mathbf{x}$ is an arbitrary non-zero vector, we have that $\mathbf{P}^{-1}$ is positive-definite.\\ \\ The second part is quite simple. It is easy to see\footnote{If you can't immediately see this, then this can be shown as follows. Let $\mathbf{P}$ positive-definite, with eigenvector $\mathbf{v}$ and eigenvalue $\lambda$. Then $$\mathbf{v}^T\mathbf{P}\mathbf{v}=k>0\implies\mathbf{v}^T\mathbf{v}\lambda =k\implies \lambda=\frac{k}{\mathbf{v}^T\mathbf{v}}>0$$ as obviously $\mathbf{v}^T\mathbf{v}>0$ } that any eigenvalue $\lambda_i$ of a positive-definite matrix $\mathbf{P}$ satisfies $\lambda_i>0$. But $\det \mathbf{P}=\lambda_1\lambda_2\ldots\lambda_n>0\neq 0$, and hence $\mathbf{P}$ is non-singular and has an inverse.
+
+
+\subsection{20.12 $\bigstar\bigstar\bigstar$}
+There is in fact an easy proof. It is obvious that $\mathbf{r}^T\mathbf{Q}\,\mathbf{q}= k$. We need to show that $k=0$. \\ \\ Assume $\mathbf{W}\mathbf{r}=\phi^2\mathbf{r}$ and $\mathbf{W}\mathbf{v}=\omega^2\mathbf{v}$, where $\mathbf{W}=\mathbf{P}\mathbf{Q}$, and $\omega\neq \phi$. Then 
+\begin{align*}
+\mathbf{r}^T\mathbf{Q}\,\mathbf{q}=k&\implies  (\phi^2\mathbf{r})^T\mathbf{Q}\,(\omega^2\mathbf{q})=k\phi^2\omega^2\\
+&\implies (\mathbf{W}\mathbf{r})^T\mathbf{Q}\,(\mathbf{W}\mathbf{q})=k\phi^2\omega^2\\
+&\implies (\mathbf{r}^T\mathbf{Q}^T\mathbf{P}^T) \mathbf{Q}\,(\mathbf{P}\mathbf{Q}\,\mathbf{q})=k\phi^2\omega^2\\
+&\implies \mathbf{r}^T(\mathbf{Q}\mathbf{P} \mathbf{Q}\,\mathbf{P}\mathbf{Q})\,\mathbf{q}=k\phi^2\omega^2\\
+&\implies \mathbf{r}^T\mathbf{Q}(\mathbf{W}\mathbf{W}\mathbf{q})=k\phi^2\omega^2\\
+&\implies \mathbf{r}^T\mathbf{Q}(\omega^4\mathbf{q})=k\phi^2\omega^2\\
+&\implies \mathbf{r}^T\mathbf{Q}\mathbf{q}=\frac{k\phi^2}{\omega^2}\\
+&\implies \frac{k\phi^2}{\omega^2}=k
+\end{align*}
+But this is only satisfied if $\omega=\phi$ or if $k=0$.\footnote{What about if either $\omega$ or $\phi$ are zero? We have that $\omega,\phi\neq 0$, as we showed that the  eigenvalues of $\mathbf{W}$ can't equal zero in question 20.9.}  As one of the assumptions was that $\omega\neq\phi$, we must have that $k=0$ and hence $\mathbf{r}^T\mathbf{Q}\,\mathbf{q}= 0$, as we wanted to show.

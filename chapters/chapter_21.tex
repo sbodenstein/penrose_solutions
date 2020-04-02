@@ -1,0 +1,60 @@
+% --------------------------------------
+% Chapter 21 Solutions
+% --------------------------------------
+
+
+\subsection{21.1 $\bigstar$}
+\begin{align*}
+(1+D^2)\cos x&=\cos x+D^2\cos x\\
+&=\cos x- D \sin x\\
+&=\cos x-\cos x \\
+&=0
+\end{align*}
+The other one is done exactly like this one.
+
+
+\subsection{21.2 $\bigstar\bigstar$}
+The first fact we will need is that $y(x)=A\cos x + B\sin x$ is the most general solution\footnote{I am not sure how to show this in an elementary way. The standard approach is to show that $\cos x$ and $\sin x$ are linearly independant, and so span the solution space of the second-order differential equation, and hence their linear combination is the most general solution.} to 
+$$(1+D^2)y(x)=0$$
+Now suppose $y_1(x)$ and $y_p(x)$ are both solutions to $(1+D^2)y(x)=x^5$. Then
+\begin{align*}
+&(1+D^2)y_1=x^5=(1+D^2)y_p\\
+\implies \ \ \ \ & (1+D^2)y_1-(1+D^2)y_p=0\\
+\implies \ \ \ \ & (1+D^2)[y_1-y_p]=0\\
+\implies \ \ \ \ & y_1-y_p=A\cos x + B\sin x
+\end{align*}
+Now suppose $y_1$ is the most general solution to $(1+D^2)y(x)=x^5$, and $y_p=x^5-20x^3+120x$. Then we have from the above that 
+\begin{align*}
+y_1&=A\cos x + B\sin x+y_p\\
+&=(A\cos x + B\sin x)+(x^5-20x^3+120x)\end{align*}
+
+
+\subsection{21.3 $\bigstar\bigstar\bigstar$}
+Following Penrose, 
+\begin{align*}
+\frac{1}{1+D^2}(1+D^2)\cos x=\frac{1}{1+D^2}\cdot 0=0
+\end{align*}
+Thus applying the inverse operator does not give us $\cos x$, as we would want from a real inverse. \\ \\ Let $\mathcal{L}=a_0+a_1 D+a_2D^2+\ldots + a_nD^n$. We can see that in general, we cannot find an `inverse' for any differential equation of the form
+$$\mathcal{L}y(x)=0$$
+as the method always gives $y(x)=0$, which is obviously not the only solution. One of the reasons that the linear operator $\mathcal{L}$ does not have an inverse, is that it is not in general bijective. For example,
+$$ (1+D^2)\cos x=0=(1+D^2)\sin x$$
+Using the idea from the previous question, suppose $y_1$ and $y_p$ are solutions to the general differential equation $\mathcal{L} y(x) = f(x)$, then 
+\begin{align*}
+&\mathcal{L}y_1=f(x)=\mathcal{L}y_p\\
+\implies \ \ \ \ & \mathcal{L}(y_1-y_p)=0\\
+\end{align*}
+Let $k(x)=y_1-y_p$. Then supposing $y_1$ to be the most general solution to $\mathcal{L} y(x) = f(x)$ and $y_p$ some other solution, we see that $y_1=k+y_p$.\\ \\ Now the key is to note is that our procedure of inverting $\mathcal{L}$ will always find a solution $y_p(x)$, but won't find $k(x)$. So the general procedure for solving equations of the form $\mathcal{L} y(x) = f(x)$ is to find an inverse $\mathcal{L}^{-1}$ using the series method in order to find $y_p\,$, and then solve the equation $\mathcal{L} k(x) = 0$ to obtain $k$, and hence obtain the general solution $y_1=y_p+k$.\\ \\
+As for solving $\mathcal{L} k(x)=0$, this can be done in a variety of ways. One is by assuming $k$ is analytic, and so is of the form $k(x)=a_0+a_1x+a_2x^2+\ldots$, and then acting on the series with $\mathcal{L}$. With skill, one can find recursion relations, which allow one to find the form of the series $k(x)$.
+
+
+\subsection{21.5 $\bigstar \bigstar$}
+The normal procedure for constructing the most general solution this sort of partial differential equation is use the method of seperation of variables. Doing this would require a knowledge of Airy functions, which is hardly what Penrose must have in mind.\\ \\ Thus we look for a solution by intelligent guesswork. We think it may be some exponential depending on both $z$ and $t$. After playing around, you should find that
+$$\Psi(t,z)=Ae^{-i(\frac{mg^2}{6\hbar}t^3+\frac{mg}{\hbar}tx)}$$
+satisfies the given Shrodinger equation.\\ \\  It should be noted again that this is not going to be the most general solution to the Schrodinger equation with potential $V=mgz$.
+
+
+
+
+
+
+
